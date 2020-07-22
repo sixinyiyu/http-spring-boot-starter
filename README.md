@@ -21,4 +21,4 @@ pom:
 当前版本：1.0.0.RELEASE
 
 
-最后即可在项目中注解注入 ```ISequenceService``` 接口
+最后即可在项目中注解注入 ```OkHttpClient``` 接口
