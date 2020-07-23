@@ -9,9 +9,9 @@
 		<version>0.0.3.RELEASE</version>
 	</parent>
 
-	<artifactId>http-spring-boot-autoconfigure</artifactId>
+	<artifactId>http-spring-boot-start</artifactId>
 	<name>http springboot autoconfigure</name>
-	<version>1.0.0.RELEASE</version>
+	<version>1.0.1.RELEASE</version>
 	<description>http 服务自动装配</description>
 	
 	<developers>
@@ -44,6 +44,56 @@
 		    <artifactId>logging-interceptor</artifactId>
 		</dependency>
 				
-
 	</dependencies>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-source-plugin</artifactId>
+                    <executions>
+                        <execution>
+                            <phase>compile</phase>
+                            <goals>
+                                <goal>jar-no-fork</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+                <!-- Javadoc -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-javadoc-plugin</artifactId>
+                    <version>${maven.javadoc.plugin.version}</version>
+                    <executions>
+                        <execution>
+                            <id>attach-javadocs</id>
+                            <goals>
+                                <goal>jar</goal>
+                            </goals>
+                            <configuration>
+                                <doclint>none</doclint>
+                                <failOnError>false</failOnError>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+                <!-- GPG mvn clean deploy -P release -Dgpg.passphrase=YourPassphase-->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-gpg-plugin</artifactId>
+                    <version>${maven-gpg-plugin.version}</version>
+                    <executions>
+                        <execution>
+                            <phase>verify</phase>
+                            <goals>
+                                <goal>sign</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
 </project>

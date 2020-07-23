@@ -9,10 +9,21 @@ package com.github.sixinyiyu.http.spring.boot.autoconfigure;
 
 import org.springframework.util.StringUtils;
 
-public abstract class JsonUtil {
+/**
+ * ClassName: JsonUtil
+ * Function:  Json工具
+ * Reason:    TODO ADD REASON
+ * Date:      2019年6月22日 下午10:39:12
+ * @author    sixinyiyu@gmail.com
+ * @version   1.0
+ * @since     JDK 1.8
+ */
+abstract class JsonUtil {
 
 	/**
-	 * <p>格式化json串</p>
+	 * 格式化json串
+	 * @param  jsonStr 待格式json
+	 * @return 格式化后字符串
 	 */
 	static String formatJson(String jsonStr) {
 		if (!StringUtils.hasText(jsonStr))
@@ -57,7 +68,9 @@ public abstract class JsonUtil {
 	}
 
 	/**
-	 * <p>添加space<p>
+	 * 添加space
+	 * @param  sb 拼接
+	 * @param  indent 间隔
 	 */
 	private static void addIndentBlank(StringBuilder sb, int indent) {
 		for (int i = 0; i < indent; i++) {
@@ -66,9 +79,11 @@ public abstract class JsonUtil {
 	}
 
 	/**
-	 * <p>http 请求数据返回 json 中中文字符为 unicode 编码转汉字转码<p>
+	 * http 请求数据返回 json 中中文字符为 unicode 编码转汉字转码
+	 * @param  theString 字符
+	 * @return 转码后字符串
 	 */
-	public static String decodeUnicode(String theString) {
+	private static String decodeUnicode(String theString) {
 		char aChar;
 		int len = theString.length();
 		StringBuilder outBuffer = new StringBuilder(len);

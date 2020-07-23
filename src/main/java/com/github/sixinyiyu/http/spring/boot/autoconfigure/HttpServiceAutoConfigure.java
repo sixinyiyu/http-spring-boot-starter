@@ -36,10 +36,10 @@ import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 
 /**
- * ClassName: HttpServiceAutoConfigure <br/>
- * Function:  TODO ADD FUNCTION <br/>
- * Reason:    TODO ADD REASON <br/>
- * Date:      2019年6月22日 下午10:39:12 <br/>
+ * ClassName: HttpServiceAutoConfigure
+ * Function:  TODO ADD FUNCTION
+ * Reason:    TODO ADD REASON
+ * Date:      2019年6月22日 下午10:39:12
  * @author    sixinyiyu@gmail.com
  * @version   1.0
  * @since     JDK 1.8
@@ -61,7 +61,7 @@ public class HttpServiceAutoConfigure {
 		}
 	}
 	
-	private void doBuildOkhttpClient() {
+	private void doBuildHttpClient() {
 		HttpLoggingInterceptor logInterceptor = new HttpLoggingInterceptor(new HttpLogger());
 		logInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
 		OkHttpClient.Builder builder = new OkHttpClient.Builder().connectTimeout(30, TimeUnit.SECONDS)
@@ -75,7 +75,7 @@ public class HttpServiceAutoConfigure {
 	@Bean("httpClient")
     @ConditionalOnMissingBean
 	public OkHttpClient okHttpClient() {
-		doBuildOkhttpClient();
+        doBuildHttpClient();
 		log.info("Initializing HttpClient");
 		return httpClient;
 	}
